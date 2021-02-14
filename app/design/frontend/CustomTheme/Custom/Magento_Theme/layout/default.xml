@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- <referenceBlock name="register-link" remove="true"/>    -->
+        
+        <referenceContainer name="header.links">
+            <block class="Magento\Framework\View\Element\Template" name="header.container.bottom.link.sustainability" template="Magento_Theme::link.phtml">
+                        <arguments>
+                            <argument name="label" translate="true" xsi:type="string">Sustainability</argument>
+                            <argument name="css_class" translate="true" xsi:type="string">link icon icon-sheet-after</argument>
+                            <argument name="link" xsi:type="string">sostenibilidad</argument>
+                        </arguments>
+                    </block>
+        </referenceContainer>
+        <move element="header.container.bottom.link.sustainability" destination="header.links" before="-"/>
+    </body>
+</page>
