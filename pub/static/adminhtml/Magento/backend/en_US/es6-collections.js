@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/magento/lib/web/es6-collections.js

@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1613314585;s:6:"expire";i:9999999999;s:4:"tags";s:37:"f49_LAYOUT_GENERAL_CACHE_TAG,f49_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1613315617;s:6:"expire";i:9999999999;s:4:"tags";s:37:"f49_LAYOUT_GENERAL_CACHE_TAG,f49_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
 </handle><handle id="catalogsearch_advanced_index"><body/>
@@ -7059,10 +7059,26 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1613314585;s:6:"expire";i:9999999999;s:4:"t
          <argument name="logo_alt" xsi:type="string">Scripting</argument>
       </arguments>
    </referenceBlock>
+   <referenceContainer name="header.panel">
+      <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+         <arguments>
+            <argument name="css_class" xsi:type="string">header links</argument>
+         </arguments>
+      </block>
+   </referenceContainer>
 </body>
 </handle><handle id="default_heade_blocks"><head>
    <css src="css/bootstrap.css"/>
 </head>
+</handle><handle id="default"><body>
+   <referenceBlock name="header.links">
+      <block class="Magento\Customer\Block\Account\Customer" name="customer" template="Magento_Customer::account/customer.phtml" before="-"/>
+      <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link-login" template="Magento_Customer::account/link/authorization.phtml"/>
+   </referenceBlock>
+   <move element="register-link" destination="header.links"/>
+   <move element="top.links" destination="customer"/>
+   <move element="authorization-link" destination="top.links" after="-"/>
+</body>
 </handle><layout id="1column"><update handle="empty"/>
 <referenceContainer name="page.wrapper">
    <container name="header.container" as="header_container" label="Page Header Container" htmlTag="header" htmlClass="page-header" before="main.content"/>
